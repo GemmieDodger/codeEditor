@@ -26,12 +26,6 @@ const Editor = ({ language, title, value, onChange }) => {
     <div className={`editor-container ${open ? "" : "collapse"}`}>
       <div className="editer-title">
         {title}
-        {/* <button
-          onClick={() => setOpen((prevOpen) => !prevOpen)}
-          className="btn"
-        >
-          {open ? <BiChevronDown /> : <RiArrowUpSLine />}
-        </button> */}
         <FormControlLabel
           control={<Switch checked={checked} onChange={handleChanges} />}
         />

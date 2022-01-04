@@ -12,7 +12,7 @@ import Switch from "@material-ui/core/Switch";
 import Collapse from "@material-ui/core/Collapse";
 
 
-const Editor = ({ language, title, value, onChange }) => {
+const DraggableEditor = ({ language, title, value, onChange }) => {
   const [open, setOpen] = useState(true);
   const [checked, setChecked] = React.useState(true);
 
@@ -26,12 +26,6 @@ const Editor = ({ language, title, value, onChange }) => {
     <div className={`editor-container ${open ? "" : "collapse"}`}>
       <div className="editer-title">
         {title}
-        {/* <button
-          onClick={() => setOpen((prevOpen) => !prevOpen)}
-          className="btn"
-        >
-          {open ? <BiChevronDown /> : <RiArrowUpSLine />}
-        </button> */}
         <FormControlLabel
           control={<Switch checked={checked} onChange={handleChanges} />}
         />
@@ -54,4 +48,4 @@ const Editor = ({ language, title, value, onChange }) => {
   );
 };
 
-export default Editor;
+export default DraggableEditor;

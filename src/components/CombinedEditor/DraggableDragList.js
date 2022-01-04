@@ -4,54 +4,14 @@ import styled from 'styled-components'
 import ListItem from './ListItem';
 import List from './List';
 import DraggableElement from './DraggableElement';
+import { isPropertySignature } from 'typescript';
+import { FiCodesandbox } from "react-icons/fi";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
 
 // This is the drag list I have working with drag drop between the two lists
 
-const lists = ['suggestions', 'html'];
 
-
-const data = {
-    suggestions: [
-    {
-      id: "2",
-      prefix: 'html',
-      content: "</html>",
-      place: "Last",
-    },
-    {
-      id: "3",
-      prefix: 'html',
-      content: "<body>",
-      place: "Third",
-    },
-    {
-      id: "4",
-      prefix: 'html',
-      content: "</body>",
-      place: "Third From Last",
-    },
-    {
-      id: "5",
-      prefix: 'html',
-      content: `<style>css</style>`,
-      place: "Second",
-    },
-    {
-      id: "6",
-      prefix: 'html',
-      content: `<script>js</script>`,
-      place: "Second From Last",
-    },
-  ],
-  html: [
-    {
-      id: "1",
-      prefix: 'html',
-      content: "<html>",
-      place: "First",
-    },
-  ],
-}
 
 const DragDropContextContainer = styled.div`
   padding: 20px;
@@ -77,11 +37,85 @@ const addToList = (list, index, element) => {
   return result;
 };
 
-function DragList() {
+function DraggableDragList(props) {
+  const lists = ['suggestions', 'html'];
+
+
+const data = {
+    suggestions: [
+    {
+      id: "2",
+      prefix: 'html',
+      content: "</html>",
+      place: "Last",
+    },
+    {
+      id: "3",
+      prefix: 'html',
+      content: "<body>",
+      place: "Third",
+    },
+    {
+      id: "4",
+      prefix: 'html',
+      content: "</body>",
+      place: "Third From Last",
+    },
+    {
+      id: "5",
+      prefix: 'html',
+      content: `<style></style>`,
+      place: "Second",
+    },
+    {
+      id: "6",
+      prefix: 'html',
+      content: `<script></script>`,
+      place: "Second From Last",
+    },
+    {
+      id: "7",
+      prefix: 'html',
+      content: `<p id="paragraph">Hello I am your favourite paragraph.</p>`,
+      place: "Inside body",
+    },
+    {
+      id: "8",
+      prefix: 'html',
+      content: `Add my own content`,
+      place: "Inside body",
+    },
+    {
+      id: "9",
+      prefix: 'html',
+      content: `<h1 id="header1">Shout if you love coding!</h1>`,
+      place: "Inside body",
+    },
+  ],
+  html: [
+    {
+      id: "1",
+      prefix: 'html',
+      content: "<html>",
+      place: "First",
+    },
+  ],
+}
   const [elements, setElements] = React.useState(data);
   useEffect(() => {
     setElements(data);
   }, []);
+
+  const handleChange = (elements) => {
+    var code = '';
+
+    elements['html'].map((element) => {
+      code = code.concat(" ", element.content)
+    })
+    console.log(code)
+    props.onChange(code);
+
+  }
 
   const onDragEnd = (result) => {
     if (!result.destination) {
@@ -103,6 +137,7 @@ function DragList() {
     );
 
     setElements(listCopy);
+    handleChange(listCopy);
   };
 
   return (
@@ -122,4 +157,4 @@ function DragList() {
   );
 }
 
-export default DragList;
+export default DraggableDragList;

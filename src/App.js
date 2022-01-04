@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CodeEditor from "./components/CodeEditor/CodeEditor";
+import CombinedCodeEditor from "./components/CombinedEditor/CombinedEditor";
 import DragAndDropList from "./components/SingleList/DragAndDropList";
 import DragList from "./components/DoubleList/DragList";
 // import { FiCodesandbox } from "react-icons/fi";
@@ -15,8 +16,10 @@ function App() {
   return (
     <>
   {/* <DragAndDropList /> */}
-  <DragList />
-  <CodeEditor />
+  {/* <DragList />
+   */}
+  <CombinedCodeEditor />
+  {/* <CodeEditor /> */}
     </>
   );
 }
