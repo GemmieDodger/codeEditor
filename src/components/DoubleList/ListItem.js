@@ -35,7 +35,6 @@ const DragItem = styled.div`
 `;
 
 const ListItem = ({ item, index }) => {
-    console.log(item)
   return (
     <Draggable draggableId={item.id} index={index}>
       {(provided, snapshot) => {

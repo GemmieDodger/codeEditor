@@ -11,7 +11,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import Switch from "@material-ui/core/Switch";
 import Collapse from "@material-ui/core/Collapse";
 
-import "../styles.css";
+
 const Eidter = ({ language, title, value, onChange }) => {
   const [open, setOpen] = useState(true);
   const [checked, setChecked] = React.useState(true);

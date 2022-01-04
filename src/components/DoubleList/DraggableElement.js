@@ -15,8 +15,6 @@ const DroppableStyles = styled.div`
 `;
 
 const DraggableElement = ({ prefix, elements }) => {
-
-  console.log(elements);
   return(
   <DroppableStyles>
     <ColumnHeader>{prefix}</ColumnHeader>
@@ -25,7 +23,6 @@ const DraggableElement = ({ prefix, elements }) => {
         <div {...provided.droppableProps} ref={provided.innerRef}>
 
           {elements.map((item, index) => {
-            console.log(elements)
             return (
             <ListItem key={item.id} item={item} index={index} />
             );

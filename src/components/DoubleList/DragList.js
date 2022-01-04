@@ -82,8 +82,6 @@ function DragList() {
   // const [e, setE] = React.useState(generateLists())
   useEffect(() => {
     setElements(data);
-    // console.log(e);
-    console.log(elements)
   }, []);
 
   const onDragEnd = (result) => {
